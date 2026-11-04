@@ -1,0 +1,62 @@
+### Checkout form (opens the hosted checkout when posted by a browser)
+POST {{baseUrl}}/merchant/pay?lang=en
+Content-Type: application/x-www-form-urlencoded
+
+merchantid={{merchantId}}&number={{orderNumber}}&amount={{amount}}&currency={{currency}}&description={{description}}&sign={{createSign}}
+
+### Create order
+POST {{baseUrl}}/merchant/payGate/createorder
+Accept: application/json
+Content-Type: application/json
+
+{
+  "merchantid": "{{merchantId}}",
+  "number": "{{orderNumber}}",
+  "amount": "{{amount}}",
+  "currency": "{{currency}}",
+  "description": "{{description}}",
+  "sign": "{{createSign}}"
+}
+
+### Check state
+GET {{baseUrl}}/merchant/payGate/checkstate?merchant_id={{merchantId}}&order_number={{orderNumber}}&amount={{stateAmount}}&currency={{currency}}&sign={{stateSign}}
+Accept: application/json
+
+### Quote
+GET {{baseUrl}}/merchant/payGate/paywayinfo?merchant_id={{merchantId}}&amount={{amount}}&currency={{currency}}&opt_payway={{payway}}&sign={{quoteSign}}
+Accept: application/json
+
+### Cancel order
+POST {{baseUrl}}/merchant/payGate/cancel
+Accept: application/json
+Content-Type: application/json
+
+{
+  "merchantId": "{{merchantId}}",
+  "orderNumber": "{{orderNumber}}",
+  "signature": "{{cancelSignature}}"
+}
+
+### Get crypto address
+POST {{baseUrl}}/merchant/payGate/getorderadress
+Accept: application/json
+Content-Type: application/json
+
+{
+  "merchantid": "{{merchantId}}",
+  "amount": "{{amount}}",
+  "number": "{{orderNumber}}",
+  "cryptoCurrency": "{{cryptoCurrency}}"
+}
+
+### List all payment methods
+GET {{baseUrl}}/merchant/payGate/payways?all=1
+Accept: application/json
+
+### List payment methods for this order
+GET {{baseUrl}}/merchant/payGate/payways?merchantid={{merchantId}}&amount={{amount}}&currency={{currency}}
+Accept: application/json
+
+### Get currency rate
+GET {{baseUrl}}/merchant/payGate/currencyrate?merchantid={{merchantId}}&amount={{amount}}&currency={{currency}}&opt_pc=BTC
+Accept: application/json
