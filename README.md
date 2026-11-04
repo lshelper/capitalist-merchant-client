@@ -1,6 +1,8 @@
 # Capitalist Merchant Client
 
-Server-side clients for Capitalist Merchant API in TypeScript, Go, PHP and Bash, with an IntelliJ HTTP Client collection. The documented contract was checked on **2026-11-04**. See the [API surface](docs/api-surface.md) and [official integration guide](https://docs.capitalist.net/api/merchants/merchant-doc.html).
+**Capitalist Merchant API clients** in **TypeScript (Node.js), Go, PHP, and Bash**. Includes an **IntelliJ HTTP Client** collection.
+
+The documented contract was checked on **2026-11-04**. See the [API surface](docs/api-surface.md) and [official integration guide](https://docs.capitalist.net/api/merchants/merchant-doc.html).
 
 ## ⚙️ Setup
 
